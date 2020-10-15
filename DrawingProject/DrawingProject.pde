@@ -3,9 +3,10 @@ String titl= "erase";
 PFont eraseFont;
 color ink, black=#000000;
 color erase, white=#FFFFFF;
-color reds,red=#FC0303 ;
+color reds, red=#FC0303 ;
+color greys, grey=#212121 ;
 float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight;
-float eraseX, eraseY, eraseWidth, eraseHeight ;
+int eraseX, eraseY, eraseWidth, eraseHeight ;
 float redX, redY, redWidth, redHeight ;
 float drawingDiameter;
 float background1X, background1Y, background1Height,background1Widht ;
@@ -28,18 +29,19 @@ void setup() {
   eraseHeight = height*5/40 ;
   //
   redX = width*230/300 ;
-  redY =  2/3;
+  redY = height*2/10 ;
   redWidth = width*5/80;
   redHeight = height*5/40;
-  //background1X = width*270/300;
-  //background1Y = height*2/2;
-  //background1Height = height*30/80 ;
-  //background1Widht =width*100/400 ;
+  //
+  background1X = width*0.1/100;
+  background1Y = height*0.1/100;
+  background1Height = height*98.9/99 ;
+  background1Widht = width*98.9/99 ;
   //background2X =width ;
    // background2Y = height;
      // background2Height = ;
        // background2Widht = width;
-
+ 
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
 }
 
@@ -53,22 +55,20 @@ void draw() {
     noStroke();
   }
    if (draw2 == true) {
-    fill(erase);
+   fill(erase);
    ellipse(mouseX, mouseY, drawingDiameter, drawingDiameter);
    noStroke();
   }
   if (draw3 == true) {
-    fill(red);
+   fill(red);
    ellipse(mouseX, mouseY, drawingDiameter, drawingDiameter);
    noStroke();
   }
-  rect (redX, redY, redWidth, redHeight) ;
-  rect(eraseX, eraseY, eraseWidth, eraseWidth,eraseHeight );
-  //rect();
-  ellipse(background1X, background1Y, background1Height, background1Widht) ;
+ 
+  rect(redX, redY, redWidth, redHeight) ;
+  //
+  rect(eraseX, eraseY, eraseWidth, eraseWidth,eraseHeight);
 }
-
-
 void mousePressed() {
   quitButtonMouseClicked();
   if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
