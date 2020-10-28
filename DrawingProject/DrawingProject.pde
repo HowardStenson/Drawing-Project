@@ -120,6 +120,7 @@ void mousePressed() {
     println("white");
     if (draw3 == false) {
       draw3 = true ;
+      draw = false ; 
     } else { 
       draw3 = false ;
       draw2 = false ;
