@@ -36,10 +36,10 @@ void setup() {
   redWidth = width*5/80;
   redHeight = height*5/40;
   //
-   blueX=  width*230/300;
-   blueY= height*2/19 ;
-   blueWidth= width*5/80;
-   blueHeight=  height*5/40;
+  blueX=  width*230/300;
+  blueY= height*2/19 ;
+  blueWidth= width*5/80;
+  blueHeight=  height*5/40;
   //background1X = width*60/300;
   //background1Y = height*8/10;
   //background1Height = height*580 ;
@@ -48,6 +48,8 @@ void setup() {
   //background2Y = height;
   //background2Height = ;
   //background2Widht = width;
+  ink = black;
+  erase = white;
 
 
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
@@ -56,34 +58,34 @@ void setup() {
 void draw() {
 
   quitButtonDraw();
- if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
- if (draw == true) {
+  if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
+    if (draw == true) {
       fill(ink);
       ellipse(mouseX, mouseY, drawingDiameter, drawingDiameter);
       noStroke();
-   }
-}
- if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
- if (draw2 == true) {
+    }
+  }
+  if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
+    if (draw2 == true) {
       fill(erase);
       ellipse(mouseX, mouseY, drawingDiameter2, drawingDiameter2);
       noStroke();
     }
-}
+  }
   if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
-  if (draw3 == true) {
-    fill(red);
-    ellipse(mouseX, mouseY, drawingDiameter, drawingDiameter);
-    noStroke();
+    if (draw3 == true) {
+      fill(red);
+      ellipse(mouseX, mouseY, drawingDiameter, drawingDiameter);
+      noStroke();
     }
-}
- if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
- if (draw4 == true) {
+  }
+  if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight ) {
+    if (draw4 == true) {
       fill(blue);
       ellipse(mouseX, mouseY, drawingDiameter, drawingDiameter);
       noStroke();
-   }
-}
+    }
+  }
   rect(redX, redY, redWidth, redHeight);
   rect(eraseX, eraseY, eraseWidth, eraseHeight );
   rect( blueX, blueY, blueWidth, blueHeight );
@@ -96,7 +98,10 @@ void mousePressed() {
     if (draw == false) {
       draw = true;
     } else {
-      draw = false;
+      draw4 = false ;
+      draw3 = false ;
+      draw2 = false ;
+      draw = false ;
     }
     ink = black;
     drawingDiameter = width*1/100;
@@ -106,22 +111,35 @@ void mousePressed() {
     if (draw2 == false) {
       draw2 = true ;
     } else { 
+      draw4 = false ;
+      draw3 = false ;
       draw2 = false ;
       draw = false ;
     }
-    ink = black;
+    //ink = black;
     erase = white;
-
     drawingDiameter = width*1/100;
     drawingDiameter2 = width*5/100 ;
+    if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
+      println("drawing surface");
+      if (draw2 == false) {
+        draw2 = true;
+      } else {
+        draw4 = false ;
+        draw3 = false ;
+        draw2 = false ;
+        draw = false ;
+      }
+    }
   }
-
   if ( mouseX>redX  && mouseX<redX+redWidth  && mouseY>redY && mouseY<redY+redHeight) {
     println("white");
     if (draw3 == false) {
       draw3 = true ;
-      draw = false ; 
+      draw2 = false ;
+      draw = false ;
     } else { 
+      draw4 = false ;
       draw3 = false ;
       draw2 = false ;
       draw = false ;
@@ -131,10 +149,14 @@ void mousePressed() {
 
     drawingDiameter = width*1/100;
   }
+
   if ( mouseX>blueX  && mouseX<blueX+redWidth  && mouseY>blueY && mouseY<blueY+blueHeight) {
     println("white");
     if (draw4 == false) {
       draw4 = true ;
+      draw3 = false;
+      draw2 = false ;
+      draw = false ;
     } else { 
       draw4 = false ;
       draw3 = false ;
