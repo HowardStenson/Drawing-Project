@@ -1,4 +1,6 @@
+
 // Global Variables
+//
 String titl= "erase";
 PFont eraseFont;
 color ink, black=#000000;
@@ -20,6 +22,7 @@ boolean draw4=false;
 
 void setup() {
   size(500, 600);
+  //
   quitButtonSetup();
   drawingSurfaceX = width*0;
   drawingSurfaceY = height*0;
@@ -96,15 +99,16 @@ void mousePressed() {
   if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
     println("drawing surface");
     if (draw == false) {
-      draw = true;
+      draw = true ;
     } else {
       draw4 = false ;
       draw3 = false ;
       draw2 = false ;
       draw = false ;
+      ink = black;
+      erase = white;
+      drawingDiameter = width*1/100;
     }
-    ink = black;
-    drawingDiameter = width*1/100;
   }
   if ( mouseX>eraseX  && mouseX<eraseX+eraseWidth  && mouseY>eraseY && mouseY<eraseY+eraseHeight) {
     println("white");
@@ -114,58 +118,40 @@ void mousePressed() {
       draw4 = false ;
       draw3 = false ;
       draw2 = false ;
-      draw = false ;
-    }
-    //ink = black;
-    erase = white;
-    drawingDiameter = width*1/100;
-    drawingDiameter2 = width*5/100 ;
-    if ( mouseX>drawingSurfaceX  && mouseX<drawingSurfaceX+drawingSurfaceWidth  && mouseY>drawingSurfaceY && mouseY<drawingSurfaceY+drawingSurfaceHeight) {
-      println("drawing surface");
-      if (draw2 == false) {
-        draw2 = true;
-      } else {
-        draw4 = false ;
-        draw3 = false ;
-        draw2 = false ;
-        draw = false ;
-      }
+      //draw = false ;
+      ink = black;
+      erase = white;
+      drawingDiameter = width*1/100;
     }
   }
   if ( mouseX>redX  && mouseX<redX+redWidth  && mouseY>redY && mouseY<redY+redHeight) {
     println("white");
     if (draw3 == false) {
       draw3 = true ;
-      draw2 = false ;
-      draw = false ;
     } else { 
       draw4 = false ;
       draw3 = false ;
       draw2 = false ;
-      draw = false ;
+      //draw = false ;
+      ink = black;
+      erase = white;
+      drawingDiameter = width*1/100;
     }
-    ink = black;
-    erase = white;
-
-    drawingDiameter = width*1/100;
   }
 
   if ( mouseX>blueX  && mouseX<blueX+redWidth  && mouseY>blueY && mouseY<blueY+blueHeight) {
     println("white");
     if (draw4 == false) {
       draw4 = true ;
-      draw3 = false;
-      draw2 = false ;
-      draw = false ;
+      // draw = false ;
     } else { 
       draw4 = false ;
       draw3 = false ;
       draw2 = false ;
-      draw = false ;
+      //draw = false ;
     }
     ink = black;
     erase = white;
-
     drawingDiameter = width*1/100;
   }
 }
