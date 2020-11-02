@@ -1,7 +1,5 @@
 
 // Global Variables
-String titl= "erase";
-PFont eraseFont;
 color ink, black=#000000;
 color erase, white=#FFFFFF;
 color reds, red=#FC0303 ;
@@ -12,7 +10,7 @@ float eraseX, eraseY, eraseWidth, eraseHeight ;
 float redX, redY, redWidth, redHeight ;
 float blueX, blueY, blueWidth, blueHeight ;
 float drawingDiameter, drawingDiameter2;
-Boolean draw=false;
+Boolean draw=false;  
 boolean draw2=false;
 boolean draw3=false;
 boolean draw4=false;
