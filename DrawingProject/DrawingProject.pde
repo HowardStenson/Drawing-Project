@@ -9,7 +9,14 @@ float drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeigh
 float eraseX, eraseY, eraseWidth, eraseHeight ;
 float redX, redY, redWidth, redHeight ;
 float blueX, blueY, blueWidth, blueHeight ;
-float drawingDiameter, drawingDiameter2;
+float drawingDiameter, drawingDiameter2 ;
+//
+float backgroundcolorX, backgroundcolorY, backgroundcolorWidth, backgroundcolorHeight ;
+float imageStartWidth, imageStartHeight, imageWidth, imageHeight ;
+float imageWidthRatio ; 
+float imageHeightRatio ;
+PImage pic ;
+//
 Boolean draw=false;  
 boolean draw2=false;
 boolean draw3=false;
@@ -42,7 +49,23 @@ void setup() {
   ink = black;
   erase = white;
   drawingDiameter = width*1/100;
-
+  drawingDiameter2 = width*3/100;
+  //
+  backgroundcolorX = width*2.5/4 ;
+  backgroundcolorY = height*4.9/6 ;
+  backgroundcolorWidth = width*3/40 ;
+  backgroundcolorHeight = height*4/50 ;
+  //
+  imageStartWidth = width*0;
+  imageStartHeight = height*0; 
+  imageWidth = width*3/4;
+  imageHeight = height*4/5;
+  //
+  imageWidthRatio = 215.0/430.0 ;  //430w*340h
+  imageHeightRatio = 345.0/430.0 ;
+  imageHeight = height*imageHeightRatio ; 
+  pic = loadImage("image0.png");
+  //
   rect(drawingSurfaceX, drawingSurfaceY, drawingSurfaceWidth, drawingSurfaceHeight);
 }
 
@@ -77,8 +100,11 @@ void draw() {
     }
   }
   rect(redX, redY, redWidth, redHeight);
-  rect(eraseX, eraseY, eraseWidth, eraseHeight );
-  rect( blueX, blueY, blueWidth, blueHeight );
+  rect(eraseX, eraseY, eraseWidth, eraseHeight);
+  rect(blueX, blueY, blueWidth, blueHeight);
+  rect(backgroundcolorX, backgroundcolorY, backgroundcolorWidth, backgroundcolorHeight);
+  //image(pic, imageStartWidth, imageStartHeight, imageWidth, imageHeight);
+  //rect(imageStartWidth, imageStartHeight, imageWidth, imageHeight);
 }
 
 void mousePressed() {
@@ -114,7 +140,7 @@ void mousePressed() {
       draw2 = false ;
     }
   }
-  if ( mouseX>blueX  && mouseX<blueX+redWidth  && mouseY>blueY && mouseY<blueY+blueHeight) {
+  if ( mouseX>blueX  && mouseX<blueX+blueWidth  && mouseY>blueY && mouseY<blueY+blueHeight) {
     println("blue");
     if (draw4 == false) {
       draw4 = true ;
@@ -123,5 +149,11 @@ void mousePressed() {
       draw3 = false ;
       draw2 = false ;
     }
+  }
+ if ( mouseX>backgroundcolorX  && mouseX<backgroundcolorX+backgroundcolorWidth  && mouseY>backgroundcolorY && mouseY<backgroundcolorY+backgroundcolorHeight) {
+    println("drawerPicture");
+    image(pic, imageStartWidth, imageStartHeight, imageWidth, imageHeight);
+    rect(imageStartWidth, imageStartHeight, imageWidth, imageHeight);
+    pic = loadImage("image0.png");    
   }
 }
