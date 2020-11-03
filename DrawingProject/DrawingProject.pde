@@ -188,7 +188,7 @@ void mousePressed() {
     }
   }
   if ( mouseX>backgroundcolorX  && mouseX<backgroundcolorX+backgroundcolorWidth  && mouseY>backgroundcolorY && mouseY<backgroundcolorY+backgroundcolorHeight) {
-    println("drawerPicture");
+    println("drawerCATPicture");
     image(pic, imageStartWidth, imageStartHeight, imageWidth, imageHeight);
     pic = loadImage("image0.png");  
     draw4 = false ;
@@ -198,7 +198,7 @@ void mousePressed() {
   }
 
   if ( mouseX>backgroundcolor2X  && mouseX<backgroundcolor2X+backgroundcolorWidth2  && mouseY>backgroundcolor2Y && mouseY<backgroundcolor2Y+backgroundcolorHeight2) {
-    println("drawerPicture");
+    println("drawerMOnkeyPicture");
     image(pic2, imageStartWidth2, imageStartHeight2, imageWidth2, imageHeight2);
     pic2 = loadImage("image0 (1).png");  
     draw4 = false ;
@@ -208,7 +208,7 @@ void mousePressed() {
   }
 
   if ( mouseX>backgroundcolor3X  && mouseX<backgroundcolor3X+backgroundcolorWidth3  && mouseY>backgroundcolor3Y && mouseY<backgroundcolor3Y+backgroundcolorHeight3) {
-    println("drawerPicture");
+    println("drawerCARSONPicture");
     image(pic3, imageStartWidth3, imageStartHeight3, imageWidth3, imageHeight3);
     pic3 = loadImage("image0 (2).png");  
     draw4 = false ;
