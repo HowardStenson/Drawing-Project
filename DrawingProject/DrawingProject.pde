@@ -12,10 +12,20 @@ float blueX, blueY, blueWidth, blueHeight ;
 float drawingDiameter, drawingDiameter2 ;
 //
 float backgroundcolorX, backgroundcolorY, backgroundcolorWidth, backgroundcolorHeight ;
+float backgroundcolor2X, backgroundcolor2Y, backgroundcolorWidth2, backgroundcolorHeight2 ;
+float backgroundcolor3X, backgroundcolor3Y, backgroundcolorWidth3, backgroundcolorHeight3 ;
 float imageStartWidth, imageStartHeight, imageWidth, imageHeight ;
+float imageStartWidth2, imageStartHeight2, imageWidth2, imageHeight2 ;
+float imageStartWidth3, imageStartHeight3, imageWidth3, imageHeight3 ;
 float imageWidthRatio ; 
 float imageHeightRatio ;
+float imageWidthRatio2 ; 
+float imageHeightRatio2 ;
+float imageWidthRatio3 ; 
+float imageHeightRatio3 ;
 PImage pic ;
+PImage pic2 ;
+PImage pic3 ;
 //
 Boolean draw=false;  
 boolean draw2=false;
@@ -55,14 +65,34 @@ void setup() {
   backgroundcolorY = height*4.9/6 ;
   backgroundcolorWidth = width*3/40 ;
   backgroundcolorHeight = height*4/50 ;
+  backgroundcolor2X = width*2.5/4 ;
+  backgroundcolor2Y = height*4.9/6 ;
+  backgroundcolorWidth2 = width*1/40;
+  backgroundcolorHeight2 = height*4/50 ;
+  backgroundcolor3X = width*2.5/4 ;
+  backgroundcolor3Y = height*4.9/6 ;
+  backgroundcolorWidth3 = width*3/40 ;
+  backgroundcolorHeight3 = height*4/50 ;
   //
   imageStartWidth = width*0;
   imageStartHeight = height*0; 
   imageWidth = width*3/4;
   imageHeight = height*4/5;
+  imageStartWidth2 = width*0;
+  imageStartHeight2 = height*0; 
+  imageWidth2 = width*3/4;
+  imageHeight2 = height*4/5;
+  imageStartWidth3 = width*0;
+  imageStartHeight3 = height*0; 
+  imageWidth3 = width*3/4;
+  imageHeight3 = height*4/5;
   //
   imageWidthRatio = 215.0/430.0 ;  //430w*340h
   imageHeightRatio = 345.0/430.0 ;
+  imageWidthRatio2 =   
+  imageHeightRatio2 = 
+  imageWidthRatio3 =
+  imageHeightRatio3 =
   imageHeight = height*imageHeightRatio ; 
   pic = loadImage("image0.png");
   //
@@ -103,8 +133,8 @@ void draw() {
   rect(eraseX, eraseY, eraseWidth, eraseHeight);
   rect(blueX, blueY, blueWidth, blueHeight);
   rect(backgroundcolorX, backgroundcolorY, backgroundcolorWidth, backgroundcolorHeight);
-  //image(pic, imageStartWidth, imageStartHeight, imageWidth, imageHeight);
-  //rect(imageStartWidth, imageStartHeight, imageWidth, imageHeight);
+  rect(backgroundcolor2X, backgroundcolor2Y, backgroundcolorWidth2, backgroundcolorHeight2);
+  rect(backgroundcolor3X, backgroundcolor3Y, backgroundcolorWidth3, backgroundcolorHeight3);
 }
 
 void mousePressed() {
@@ -150,10 +180,13 @@ void mousePressed() {
       draw2 = false ;
     }
   }
- if ( mouseX>backgroundcolorX  && mouseX<backgroundcolorX+backgroundcolorWidth  && mouseY>backgroundcolorY && mouseY<backgroundcolorY+backgroundcolorHeight) {
+  if ( mouseX>backgroundcolorX  && mouseX<backgroundcolorX+backgroundcolorWidth  && mouseY>backgroundcolorY && mouseY<backgroundcolorY+backgroundcolorHeight) {
     println("drawerPicture");
     image(pic, imageStartWidth, imageStartHeight, imageWidth, imageHeight);
-    rect(imageStartWidth, imageStartHeight, imageWidth, imageHeight);
-    pic = loadImage("image0.png");    
+    pic = loadImage("image0.png");  
+    draw4 = false ;
+    draw3 = false ;
+    draw2 = false ;
+    draw = false ;
   }
 }
